@@ -18,7 +18,7 @@ while _G.enabled do
             hrp.CFrame = v.CFrame
         end
     elseif hum.Health == 0 then
-        wait(3)
+        wait(1.5)
     else
         print("Scanning for Time.")
         hrp.CFrame = game:GetService("Workspace").Structure.TP.CFrame
