@@ -24,7 +24,6 @@ local hrp = character:FindFirstChild("HumanoidRootPart") or character:WaitForChi
 while _G.enabled do
     if #candies:GetChildren() > 0 and hrp and hum and hum.Health > 0 then
         for i, v in pairs(candies:GetChildren()) do
-            print("Collected time!")
             wait(0.2)
             hrp.CFrame = v.CFrame
         end
@@ -32,7 +31,6 @@ while _G.enabled do
         wait()
     else
         hrp.CFrame = workspace.Structure:FindFirstChild('Base').CFrame * CFrame.new(0, 5.3, 0)
-        print("Scanning for Time.")
     end
     wait(0)
 end
