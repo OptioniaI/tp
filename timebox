@@ -1,17 +1,5 @@
-if not workspace:FindFirstChild('TimeToggle') then --this is created in the workspace so we can know if the thing is toggled or not
-	local T = Instance.new('BoolValue', workspace)
-	T.Name = 'TimeToggle'
-	T.Value = false
-end
+_G.enabled = true
 
-
-if workspace:FindFirstChild('TimeToggle').Value == false then --a if statement for if we want the time grabber to be on or off
-	workspace:FindFirstChild('TimeToggle').Value = true
-	print('toggled off')
-else
-	workspace:FindFirstChild('TimeToggle').Value = false
-	print('toggled on')
-end
 
 local workspace = game:GetService("Workspace")
 local candies = workspace.Gifts
@@ -22,18 +10,18 @@ local hum = character:FindFirstChild("Humanoid") or character:WaitForChild("Huma
 local hrp = character:FindFirstChild("HumanoidRootPart") or character:WaitForChild("HumanoidRootPart")
 
 
-while workspace:FindFirstChild('TimeToggle').Value == true do
-	if #candies:GetChildren() > 0 and hrp and hum and hum.Health > 0 then
-		for i, v in pairs(candies:GetChildren()) do
-			print("Collected time!")
-			wait(0.7)
-			hrp.CFrame = v.CFrame
-		end
-	elseif hum.Health == 0 then
-		wait(3)
-	else
-		print("Scanning for Time.")
-		hrp.CFrame = game:GetService("Workspace").Structure.TP.CFrame
-	end
-	wait(1.2)
+while _G.enabled do
+    if #candies:GetChildren() > 0 and hrp and hum and hum.Health > 0 then
+        for i, v in pairs(candies:GetChildren()) do
+            print("Collected time!")
+            wait(1.5)
+            hrp.CFrame = v.CFrame
+        end
+    elseif hum.Health == 0 then
+        wait(3)
+    else
+        print("Scanning for Time.")
+        hrp.CFrame = game:GetService("Workspace").Structure.TP.CFrame
+    end
+    wait(1.2)
 end
