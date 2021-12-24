@@ -1,0 +1,27 @@
+_G.enabled = true
+
+
+local workspace = game:GetService("Workspace")
+local candies = workspace.Gifts
+local player = game:GetService("Players").LocalPlayer
+
+local character = player.Character or player.CharacterAdded:Wait()
+local hum = character:FindFirstChild("Humanoid") or character:WaitForChild("Humanoid")
+local hrp = character:FindFirstChild("HumanoidRootPart") or character:WaitForChild("HumanoidRootPart")
+
+
+while _G.enabled do
+    if #candies:GetChildren() > 0 and hrp and hum and hum.Health > 0 then
+        for i, v in pairs(candies:GetChildren()) do
+            print("Collected time!")
+            wait(1.5)
+            hrp.CFrame = v.CFrame
+        end
+    elseif hum.Health == 0 then
+        wait(3)
+    else
+        print("Scanning for Time.")
+        hrp.CFrame = game:GetService("Workspace").Structure.TP.CFrame
+    end
+    wait(1.2)
+end
