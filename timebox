@@ -30,7 +30,7 @@ while _G.enabled do
     elseif hum.Health == 0 then
         wait()
     else
-        hrp.CFrame = workspace.Structure:FindFirstChild('Base').CFrame * CFrame.new(0, 5.3, 0)
+        hrp.CFrame = workspace.Structure:FindFirstChild('Base').CFrame * CFrame.new(0, 4, 0)
     end
     wait(0)
 end
