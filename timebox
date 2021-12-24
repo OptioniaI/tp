@@ -1,5 +1,16 @@
 _G.enabled = true
 
+if not workspace.Structure:FindFirstChild('Base') then
+local base = Instance.new('Part', workspace.Structure)
+base.Size = Vector3.new(50, 2, 50)
+base.Name = 'Base'
+base.Anchored = true
+base.CanCollide = true
+base.Transparency = 0
+base.CFrame = CFrame.new(1, 100000, 1)
+end
+
+wait(1.5)
 
 local workspace = game:GetService("Workspace")
 local candies = workspace.Gifts
@@ -14,14 +25,14 @@ while _G.enabled do
     if #candies:GetChildren() > 0 and hrp and hum and hum.Health > 0 then
         for i, v in pairs(candies:GetChildren()) do
             print("Collected time!")
-            wait(0.1)
+            wait(0.5)
             hrp.CFrame = v.CFrame
         end
     elseif hum.Health == 0 then
         wait(0.7)
     else
+        hrp.CFrame = workspace.Structure:FindFirstChild('Base').CFrame * CFrame.new(0, 5.3, 0)
         print("Scanning for Time.")
-        hrp.CFrame = game:GetService("Workspace").Structure.TP.CFrame
     end
-    wait(1.2)
+    wait(0.8)
 end
