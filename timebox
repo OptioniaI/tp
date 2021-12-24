@@ -14,7 +14,7 @@ while _G.enabled do
     if #candies:GetChildren() > 0 and hrp and hum and hum.Health > 0 then
         for i, v in pairs(candies:GetChildren()) do
             print("Collected time!")
-            wait(1.5)
+            wait(0.7)
             hrp.CFrame = v.CFrame
         end
     elseif hum.Health == 0 then
